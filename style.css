@@ -23,7 +23,7 @@ html {
 
 body {
     color: var(--white);
-    font-family: "Orbitron", sans-serif;
+    font-family: "Arimo", sans-serif;
     font-size: 1.8rem;
     background-color: var(--black);
     font-weight: 400;
@@ -42,17 +42,17 @@ a {
 }
 
 section {
-    padding: 10rem 0;
+    padding: 8rem 0;
 }
 
 .wrapper {
     max-width: 118rem;
     margin: 0 auto;
-    padding: 5rem;
+    padding: 3rem;
 }
 
 h1, h2 {
-    font-weight: 900;
+    font-weight: 700;
 }
 
 h1 {
@@ -63,13 +63,18 @@ h2 {
     font-size: var(--fontsize-h2);
 }
 
+/* line underneath h2 */
 h2::after {
     content: "";
     display: block;
     height: 0.3rem;
     width: 13rem;
     background-color: var(--pink);
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+p {
+    line-height: 1.5;
 }
 
 /* header */
@@ -103,9 +108,30 @@ nav a {
     display: flex;
     height: calc(100% - var(--nav-height));
     align-items: center;
+    justify-content: space-between;
 }
 
 .header-text-container p {
     font-size: 2.4rem;
     margin: 1rem 0 3rem;
+}
+
+.header-image{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.circular-image {
+    width: 50rem;
+    height: 50rem;
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+/* About me */
+
+.section-text-container {
+    display: flex;
+    margin-top: 2rem;
 }
