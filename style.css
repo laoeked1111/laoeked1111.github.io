@@ -1,0 +1,111 @@
+/* setup */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* 10 px */
+}
+
+:root {
+    --pink: #ff3258;
+    --white: #ffffff;
+    --black: #010101;
+
+    --nav-height: 8rem;
+
+    --fontsize-h1: 7.5rem;
+    --fontsize-h2: 5rem;
+}
+
+body {
+    color: var(--white);
+    font-family: "Orbitron", sans-serif;
+    font-size: 1.8rem;
+    background-color: var(--black);
+    font-weight: 400;
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 4rem;
+    border: 1px solid var(--pink);
+    font-size: 2.2rem;
+}
+
+section {
+    padding: 10rem 0;
+}
+
+.wrapper {
+    max-width: 118rem;
+    margin: 0 auto;
+    padding: 5rem;
+}
+
+h1, h2 {
+    font-weight: 900;
+}
+
+h1 {
+    font-size: var(--fontsize-h1);
+}
+
+h2 {
+    font-size: var(--fontsize-h2);
+}
+
+h2::after {
+    content: "";
+    display: block;
+    height: 0.3rem;
+    width: 13rem;
+    background-color: var(--pink);
+    margin-top: 1rem;
+}
+
+/* header */
+
+header {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: linear-gradient(rgb(0,0,0,0.1), rgb(0,0,0,0.4)), url('images/header.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+header .wrapper {
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    gap: 6rem;
+    justify-content: flex-end;
+    height: var(--nav-height);
+    align-items: center;
+}
+
+nav a {
+    font-size: 2.2rem;
+}
+
+.header-text-container {
+    display: flex;
+    height: calc(100% - var(--nav-height));
+    align-items: center;
+}
+
+.header-text-container p {
+    font-size: 2.4rem;
+    margin: 1rem 0 3rem;
+}
