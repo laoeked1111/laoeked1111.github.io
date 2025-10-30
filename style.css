@@ -42,7 +42,7 @@ a {
 }
 
 section {
-    padding: 8rem 0;
+    padding: 1rem 0;
 }
 
 .wrapper {
@@ -132,6 +132,21 @@ nav a {
 /* About me */
 
 .section-text-container {
-    display: flex;
     margin-top: 2rem;
+}
+
+a.inline-link {
+    font-size: 1.8rem;
+    padding: 0;
+    border: none;
+    text-decoration: underline;
+    color: var(--pink);
+}
+
+/* Work */
+
+/* Contact */
+ul {
+    padding-left: 4rem;
+    padding-top: 0.5rem;
 }
