@@ -1,0 +1,25 @@
+---
+layout: default
+modal-id: 7
+date: 2025-10-30
+img: typetest.gif
+alt: image-alt
+project-date: October 2025
+description: This is a terminal-based typing speed test that I made using Python and the curses library.
+---
+
+***
+
+## Project Details
+
+### Links
+
+The [Github repo](https://github.com/laoeked1111/typetest) has all the code and instructions for running the test.
+
+### Info
+
+The typetester implements two types of tests: finite and continuous. 
+A finite test has a finite number of words that the user specifies and times how long the user takes to type them.
+A continuous test asks the user for a test duration, and the user types as many words as possible in the alloted time.
+Words per minute (wpm) is defined in the typical standard as the total number of characters typed, divided by 5, and normalized to a total time of 60 seconds.
+

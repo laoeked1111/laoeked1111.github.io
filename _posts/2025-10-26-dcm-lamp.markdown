@@ -1,0 +1,15 @@
+---
+layout: default
+modal-id: 4
+date: 2025-10-26 
+img: dcm-lamp.jpg
+alt: image-alt
+project-date: October 2025
+description: 
+---
+
+***
+
+## Project Details
+
+Entry WIP :P
