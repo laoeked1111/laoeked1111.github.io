@@ -5,11 +5,17 @@ date: 2025-10-26
 img: dcm-lamp.jpg
 alt: image-alt
 project-date: October 2025
-description: 
+description: In my power electronics class, we were tasked with determining component values that would be suitable for an adjustable LED lamp powered by a boost converter operating in discontinuous conduction mode.
 ---
 
 ***
 
 ## Project Details
 
-Entry WIP :P
+A boost converter is often operated in continuous conduction mode, where the inductor always has current running through it, but it can also be operated in discontinuous conduction mode. When operating in CCM, the boost converter acts as a duty cycle-controlled voltage source, while when operating in DCM, the boost converter acts as a duty cycle-controlled current source. By using the boost converter as a constant-voltage current source, we can light the LED with different brightnesses by varying the duty cycle. To ensure that the boost converter remains in DCM, the inductance of the inductor must be below a certain threshold value.
+
+Below is a video of the lamp in action.
+
+<div class="video-container">
+    <iframe width="1242" height="699" src="https://www.youtube.com/embed/GzSjt6Y4mqU" title="DCM Lamp" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
