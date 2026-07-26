@@ -1,11 +1,11 @@
 ---
-layout: default
-modal-id: 6
+layout: project
+title: Resistor Color Code Calculator
+tags: [Software]
 date: 2024-04-01
 img: resistor-calculator.gif
-alt: image-alt
 project-date: April 2025
-description: I made a four-band resistor color code calculator in Python.
+description: Four-color resistor calculator.
 ---
 
 ***

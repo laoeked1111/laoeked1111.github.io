@@ -1,8 +1,21 @@
-.DS_Store
-
-_site
-.sass-cache
-.jekyll-cache
+# Jekyll build output & caches
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-metadata
 
+# Bundler
 Gemfile.lock
+.bundle/
+vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor / tooling
+.vscode/
+.idea/
+.claude/

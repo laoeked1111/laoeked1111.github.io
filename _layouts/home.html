@@ -1,0 +1,216 @@
+---
+layout: default
+---
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <img class="hero-avatar" id="avatar" src="{{ '/img/profile.png' | relative_url }}" alt="Eric Zou"
+         role="button" tabindex="0" aria-label="Expand profile photo">
+    <p class="eyebrow">// EECS & Physics @ MIT</p>
+    <h1>Hi, I'm Eric Zou.</h1>
+    <p class="lead">
+      I sometimes make stuff.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#projects">View projects</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">01 — Work</p>
+      <h2>Projects and Work</h2>
+      <p class="sub">A selection of hardware, electronics, and software projects I've built.</p>
+    </div>
+    {% assign sorted_tags = site.tags | sort %}
+    <details class="filter-disclosure" id="filterDisclosure">
+      <summary>
+        <svg class="twisty" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 6l6 6-6 6" />
+        </svg>
+        <span id="filterSummaryLabel">Filter by tag</span>
+      </summary>
+      <div class="filter-bar" id="filterBar" role="group" aria-label="Filter projects by tag">
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        {% for tag in sorted_tags %}
+        <button class="filter-btn" type="button" data-filter="{{ tag[0] }}">{{ tag[0] }}</button>
+        {% endfor %}
+      </div>
+    </details>
+
+    <div class="projects-grid" id="projectsGrid">
+      {% for post in site.posts %}
+      <a class="project-card" href="{{ post.url | relative_url }}" data-tags="{{ post.tags | join: '|' }}">
+        <div class="project-thumb">
+          <img src="{{ '/img/portfolio/' | append: post.img | relative_url }}" alt="{{ post.title }}" loading="lazy">
+        </div>
+        <div class="project-body">
+          {% if post.tags and post.tags.size > 0 %}
+          <div class="project-tags">
+            {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+          </div>
+          {% endif %}
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description | strip_html | truncate: 130 }}</p>
+          <span class="project-more">Read more <span class="arrow">→</span></span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <p class="no-results" id="noResults" hidden>No projects match that tag.</p>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">02 — About</p>
+      <h2>About me</h2>
+    </div>
+    <div class="about-grid">
+      <p>
+        I'm studying EECS and physics as an undergraduate in MIT's class of 2028. Currently, I am an EE intern 
+        at <a href="https://ouster.com/">Ouster</a> working across the discipline by designing wireless power 
+        systems, laying out PCBs in Altium, automating hardware tests, simulating circuits, and soldering an 
+        excessive amount of tiny components.
+      </p>
+      <p>
+        At MIT, I am an undergraduate researcher at the Wellman Center for Photomedicine, where I am facilitating
+        the development of optical coherence elastography for medical imaging. 
+        
+        <br> <br>
+        This site is a portfolio of the  things I've built -- feel free to <a href="mailto:{{ site.email }}">get in touch</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">03 — Contact</p>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <p>
+          Have a question, an idea, or just want to say hi? Drop me a message and I'll get back to you.
+        </p>
+        <div class="contact-socials">
+          {% for network in site.social %}
+          <a class="icon-btn" href="{{ network.url }}" target="_blank" rel="noopener" aria-label="{{ network.title }}">{% include icons.html icon=network.title %}</a>
+          {% endfor %}
+          <a class="icon-btn" href="mailto:{{ site.email }}" aria-label="Email">{% include icons.html icon="email" %}</a>
+        </div>
+      </div>
+      <form action="https://formspree.io/f/xnjarveg" method="POST" id="contactForm">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message</button>
+        <p class="form-note" id="formNote" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Profile photo lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <img src="{{ '/img/profile.png' | relative_url }}" alt="Eric Zou">
+</div>
+
+<script>
+  // Filter projects by tag
+  (function () {
+    var bar = document.getElementById('filterBar');
+    var grid = document.getElementById('projectsGrid');
+    var noResults = document.getElementById('noResults');
+    var summaryLabel = document.getElementById('filterSummaryLabel');
+    if (!bar || !grid) return;
+    var cards = [].slice.call(grid.querySelectorAll('.project-card'));
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      var filter = btn.getAttribute('data-filter');
+      if (summaryLabel) summaryLabel.textContent = filter === 'all' ? 'Filter by tag' : 'Tag: ' + filter;
+      [].forEach.call(bar.querySelectorAll('.filter-btn'), function (b) {
+        var active = b === btn;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-pressed', active);
+      });
+      var shown = 0;
+      cards.forEach(function (card) {
+        var tags = (card.getAttribute('data-tags') || '').split('|');
+        var show = filter === 'all' || tags.indexOf(filter) !== -1;
+        card.classList.toggle('hide', !show);
+        if (show) shown++;
+      });
+      if (noResults) noResults.hidden = shown !== 0;
+    });
+  })();
+
+  // Expand the profile photo on click
+  (function () {
+    var avatar = document.getElementById('avatar');
+    var lightbox = document.getElementById('lightbox');
+    if (!avatar || !lightbox) return;
+    var open = function () { lightbox.classList.add('open'); lightbox.setAttribute('aria-hidden', 'false'); };
+    var close = function () { lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden', 'true'); };
+    avatar.addEventListener('click', open);
+    avatar.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+    lightbox.addEventListener('click', close);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  })();
+
+  (function () {
+    var form = document.getElementById('contactForm');
+    var note = document.getElementById('formNote');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true; btn.textContent = 'Sending…';
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (r) {
+        note.hidden = false;
+        if (r.ok) {
+          form.reset();
+          note.textContent = 'Thanks — your message has been sent.';
+          note.className = 'form-note ok';
+        } else {
+          note.textContent = 'Something went wrong. Please email me directly.';
+          note.className = 'form-note';
+        }
+      }).catch(function () {
+        note.hidden = false;
+        note.textContent = 'Something went wrong. Please email me directly.';
+        note.className = 'form-note';
+      }).finally(function () {
+        btn.disabled = false; btn.textContent = 'Send message';
+      });
+    });
+  })();
+</script>

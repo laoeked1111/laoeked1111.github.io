@@ -1,14 +1,16 @@
 ---
-layout: default
-modal-id: 5
+layout: project
+title: Watermelon Ripeness Probe
+tags: [Signal Processing, Hardware, Optics]
 date: 2023-10-01
 img: watermelon-ripeness.jpg
-alt: image-alt
 project-date: October 2023
-description: In high school, I built a photoacoustic probe in order to test the ripeness of watermelons. This was a multi-year project that culminated in the publication of a manuscript in IEEE Sensors.
+description: Photoacoustic detection of watermelon ripeness.
 ---
 
 ***
+
+In high school, I built a photoacoustic probe in order to test the ripeness of watermelons. This was a multi-year project that culminated in the publication of a manuscript in IEEE Sensors.
 
 ## Project Details
 
@@ -20,7 +22,7 @@ All the technical details can be found in this [manuscript](https://ieeexplore.i
 
 The quality and taste of a watermelon depend mostly on its degree of ripeness. 
 Many different properties of the watermelon change during ripening, but two important ones are the redness of the flesh and the thickness of the rind. 
-In particular, as the watermelon ripens, the flesh becomes more red due to lycopene buildup while the rind thickness.
+In particular, as the watermelon ripens, the flesh becomes more red due to lycopene buildup while the rind thickness decreases.
 
 Cutting open the watermelon is a very easy way to determine its ripeness, but we would obviously prefer a nondestructive method for ripeness detection. Some of the methods used include acoustic methods like knocking on the watermelon and NIR spectroscopy, but these have faced various limitations.
 I wanted to use a photoacoustic method to determine watermelon ripeness.
@@ -29,14 +31,14 @@ I wanted to use a photoacoustic method to determine watermelon ripeness.
 
 By shining a pulsed laser onto a watermelon, some of the light will be absorbed on the outside skin, and some will transmit through the skin and be absorbed at the inner flesh. These two areas of absorption will rise in temperature and expand, each producing a photoacoustic wave which can be detected. The time delay between the two waves, multiplied by the speed of sound through the watermelon, should equal the thickness of the rind. Meanwhile, the strength of the wave from the inner flesh should correlate with flesh redness.
 
-![rationale](img/portfolio/watermelon-ripeness/rationale.png)
+![rationale](/img/portfolio/watermelon-ripeness/rationale.png)
 
 ### Feasibility
 
 In order to determine the feasibility of using photoacoustics for detecting watermelon ripeness, I performed some characterization experiments on the watermelon rind and then performed a feasibility experiment using what I learned.
 A summary of my findings is given below.
 
-![feasibility experiments](img/portfolio/watermelon-ripeness/feasibility-experiments.png)
+![feasibility experiments](/img/portfolio/watermelon-ripeness/feasibility-experiments.png)
 
 I used a spectrometer to determine the transmission spectrum of watermelon rind in order to determine what laser color would be best for reaching the inner flesh. I found that green or blue light had the greatest transmission, so I settled on a laser wavelength of 532 nm. 
 
@@ -50,7 +52,7 @@ The waveforms that I collected were good quality, and I was able to visually ide
 When I took the time difference and multiplied by the speed of sound, I got results that were close to the actual rind thickness, so I concluded that this method was feasible. 
 An example of a PA signal is shown below.
 
-![pa signal](img/portfolio/watermelon-ripeness/pa-signal.png)
+![pa signal](/img/portfolio/watermelon-ripeness/pa-signal.png)
 
 I presented this work at Regeneron ISEF and received 3rd place in Embedded Systems.
 
@@ -58,11 +60,11 @@ I presented this work at Regeneron ISEF and received 3rd place in Embedded Syste
 
 After determining that the idea was feasible, I set out to create a more compact and practical design for the ripeness detector. An image is shown below.
 
-![probe](img/portfolio/watermelon-ripeness/probe.png)
+![probe](/img/portfolio/watermelon-ripeness/probe.png)
 
 The 3D printed cuboidal structure can be screwed directly onto the laser head, and the ultrasound transducer can be screwed onto the side via a 3D printed piece. 
 The opposite side has a photodiode that is used as a trigger signal for synchronization during data collection.
-Inside the cube, there is a glass pane which is transparent to the laser beam but reflective to ultrasound, so the laser light can shine straight onto the watermelon while the photoacoustic waves will be reflfected toward the ultrasound transducer.
+Inside the cube, there is a glass pane which is transparent to the laser beam but reflective to ultrasound, so the laser light can shine straight onto the watermelon while the photoacoustic waves will be reflected toward the ultrasound transducer.
 Additionally, water inside the cube serves for acoustic coupling.
 The sides are made out of clear acrylic to avoid absorbing any extra light and interfering with measurement of the signal of interest.
 The bottom is made of food-wrap to provide a surface that will conform to the watermelon.
@@ -89,3 +91,6 @@ For fun, I also fed everything into a bag of SFA symbols (BOSS) classifier and f
 ### Later Steps
 
 I made some modifications to the design of the probe later and did more testing. More details are available in the [manuscript](https://ieeexplore.ieee.org/document/10255625).
+
+### Acknowledgements
+Special thanks to Dr. Cheng Fang and Dr. Dezhen Song for their guidance during this endeavor.

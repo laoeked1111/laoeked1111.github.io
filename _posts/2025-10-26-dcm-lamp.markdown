@@ -1,14 +1,16 @@
 ---
-layout: default
-modal-id: 4
+layout: project
+title: DCM Boost LED Lamp
+tags: [Power Electronics, Circuits, Hardware]
 date: 2025-10-26 
 img: dcm-lamp.jpg
-alt: image-alt
 project-date: October 2025
-description: In my power electronics class, we were tasked with determining component values that would be suitable for an adjustable LED lamp powered by a boost converter operating in discontinuous conduction mode.
+description: LED lamp with adjustable brightness powered by boost converter in DCM.
 ---
 
 ***
+
+In my power electronics class, we were tasked with determining component values that would be suitable for an adjustable LED lamp powered by a boost converter operating in discontinuous conduction mode.
 
 ## Project Details
 

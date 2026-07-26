@@ -1,24 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 {% include head.html %}
-
-<body id="page-top" class="index">
+<body id="top">
   {% include nav.html %}
-  {% include header.html %}
-  {% include portfolio_grid.html %}
-  {% include about.html %}
 
-  {% if site.contact == "static" %}
-  {% include contact_static.html %}
-  {% elsif site.contact == "disqus" %}
-  {% include contact_disqus.html %}
-  {% else %}
-  {% include contact.html %}
-  {% endif %}
+  {{ content }}
 
   {% include footer.html %}
-  {% include modals.html %}
-  {% include js.html %}
-</body>
 
+  <script>
+    (function () {
+      var nav = document.getElementById('nav');
+      var onScroll = function () {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Smooth-scroll only for intentional in-page anchor clicks (keyboard,
+      // wheel and scrollbar stay native so scrolling feels normal).
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href]');
+        if (!a) return;
+        var url = new URL(a.href, location.href);
+        if (url.pathname !== location.pathname || !url.hash) return;
+        var target = document.querySelector(url.hash);
+        if (!target) return;
+        e.preventDefault();
+        history.pushState(null, '', url.hash);
+        target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+      });
+
+      var toggle = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      if (toggle && links) {
+        toggle.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          nav.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open);
+        });
+        links.addEventListener('click', function (e) {
+          if (e.target.closest('a')) {
+            links.classList.remove('open');
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded', false);
+          }
+        });
+      }
+    })();
+  </script>
+</body>
 </html>

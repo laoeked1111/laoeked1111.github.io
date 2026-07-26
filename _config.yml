@@ -2,65 +2,35 @@
 title: Eric Zou
 email: ericzou1111@gmail.com
 url: https://laoeked1111.github.io
-description: "MIT student studying EECS, interested in hardware, signal processing, and medical technology."
-keywords: "Eric Zou, MIT, Massachusetts Institute of Technology, Electrical Engineering, EE, Signal Processing, Imaging"
-skills: "Electrical Engineering - Signal Processing - Medical Technology"
-meta_author: Zou Eric
+description: "MIT student studying EECS and physics, interested in all things hardware."
+skills: "Hardware · Optics · Signal Processing"
+meta_author: Eric Zou
 
-# Google webmaster tools
+# Search engine verification (optional)
 google_verify:
-
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
 
-# Contact form:
-# - static : pass through formspree.io to validate email sending
-# - disqus : replace contact form by disqus thread
-# - comment the line below if you want to stick with the default PHP contact form
-contact: static
-
-# If you use disqus you need disqus shortname
-# https://help.disqus.com/customer/portal/articles/466208
-disqus_shortname: myshortname
-
-# Color settings (hex-codes without the leading hash-tag)
-color:
-  primary: 006a2c
-  primary-rgb: "0,106,44"
-  secondary: 2c3e50
-  secondary-dark: 233140
-
-# Footer settings
+# Footer
 footer:
   copyright: Eric Zou
   location: Cambridge, MA
-  social: Connect with Me
-  credits: Credits
 
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+# Social links
 social:
   - title: linkedin
     url: https://www.linkedin.com/in/ericjzou/
   - title: github
     url: http://github.com/laoeked1111
 
-# Postal address (add as many lines as necessary)
-address:
-  - line: Massachusetts Institute of Technology
-  - line: 229 Vassar Street, Rm 344
-  - line: Cambridge, MA, 02139
-
-# Credits content
-credits: 'Theme based on Freelancer by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
-
 # Build settings
 markdown: kramdown
 permalink: pretty
 
-#for posts
+# Projects are Jekyll posts, rendered as dedicated pages at /projects/:title/
 defaults:
   - scope:
       path: ""
       type: "posts"
     values:
-      permalink: ""
+      layout: "project"
+      permalink: "/projects/:title/"

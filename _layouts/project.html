@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<article class="project-page">
+  <div class="container">
+    <div class="wrap">
+      <a class="back-link" href="{{ '/#projects' | relative_url }}">← All projects</a>
+
+      <h1>{{ page.title }}</h1>
+      {% if page.project-date or page.tags %}
+      <div class="project-meta">
+        {% if page.project-date %}<span>{{ page.project-date }}</span>{% endif %}
+        {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+      </div>
+      {% endif %}
+
+      {% if page.img %}
+      <img class="project-hero" src="{{ '/img/portfolio/' | append: page.img | relative_url }}" alt="{{ page.title }}">
+      {% endif %}
+
+      {% if page.description %}<p class="project-summary">{{ page.description }}</p>{% endif %}
+
+      <div class="prose">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</article>

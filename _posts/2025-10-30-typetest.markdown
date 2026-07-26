@@ -1,14 +1,16 @@
 ---
-layout: default
-modal-id: 7
+layout: project
+title: Terminal Typing Test
+tags: [Software]
 date: 2025-10-30
 img: typetest.gif
-alt: image-alt
 project-date: October 2025
-description: This is a terminal-based typing speed test that I made using Python and the curses library.
+description: Terminal-based typing speed test.
 ---
 
 ***
+
+This is a terminal-based typing speed test that I made using Python and the curses library.
 
 ## Project Details
 
