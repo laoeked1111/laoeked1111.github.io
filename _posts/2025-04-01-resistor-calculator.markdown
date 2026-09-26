@@ -2,7 +2,7 @@
 layout: project
 title: Resistor Color Code Calculator
 tags: [Software]
-date: 2024-04-01
+date: 2025-04-01
 img: resistor-calculator.gif
 project-date: April 2025
 description: Four-color resistor calculator.

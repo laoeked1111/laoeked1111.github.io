@@ -4,7 +4,7 @@ title: Analog Water Saturation Sensor
 tags: [Hardware, PCB, Circuits, Analog]
 date: 2025-12-01
 img: water-saturation.jpg
-project-date: September 2026
+project-date: December 2025
 description: Battery-powered analog water saturation sensor.
 ---
 
